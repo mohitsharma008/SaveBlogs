@@ -2,6 +2,7 @@
   "name": "myapp",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://mohitsharma008.github.io/SaveBlogs",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -11,6 +12,7 @@
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "firebase": "^9.8.2",
+    "gh-pages": "^4.0.0",
     "localtunnel": "^2.0.1",
     "react": "17.0.1",
     "react-alert": "^7.0.3",
@@ -33,7 +35,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
