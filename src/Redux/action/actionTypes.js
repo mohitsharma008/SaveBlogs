@@ -1,0 +1,9 @@
+export const Logout1 = "Logout1";
+export const Login1 = "Login1";
+export const SignUp1 = "SignUp1";
+export const RadioA = "RadioA";
+export const RadioB = "RadioB";
+export const RadioC = "RadioC";
+export const RadioD = "RadioD";
+export const Handle_Final_Submit = "Handle_Final_Submit";
+export const Auto_Save_Local = "Auto_Save_Local";

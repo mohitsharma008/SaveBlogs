@@ -1,0 +1,17 @@
+.cardcardhandle {
+  height: 160px;
+  width: 150px;
+  background-color: burlywood;
+  margin-right: 12px;
+  border-radius: 7px;
+  text-align: center;
+  margin-top: 10px;
+}
+.cardscrollctrl {
+  display: flex;
+  position: fixed;
+  left: 40px;
+  right: 40px;
+  align-items: center;
+  background-color: red;
+}

@@ -1,0 +1,72 @@
+/* .authfix {
+  margin: 0%;
+  padding: 0%;
+  background-color: aqua;
+  height: 100vh;
+  width: 100%;
+} */
+.authlinkcomplete {
+  display: flex;
+  width: 100%;
+  position: fixed;
+  height: 40px;
+  background-color: #4d4737;
+  margin: 0%;
+  padding: 0%;
+  box-shadow: 0px 3px rgb(167, 55, 4);
+}
+.authlinkcompleteAuth {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  background-color: #4d4737;
+  margin: 0%;
+  padding: 0%;
+  box-shadow: 0px 3px rgb(167, 55, 4);
+}
+.linkleft {
+  width: 30%;
+  height: 40px;
+  margin-top: 12px;
+  margin-left: 12px;
+}
+
+.linkright {
+  width: 70%;
+  height: 40px;
+  text-align: end;
+  margin-right: 12px;
+  margin-top: 9px;
+}
+.linkstyle {
+  text-decoration: none;
+  font-size: 20px;
+  color: #ccd98f;
+  margin-right: 12px;
+
+  font-family: "Nunito", sans-serif;
+}
+.authcontent {
+  padding: 0%;
+  margin: 0%;
+}
+
+/* width setup */
+@media only screen and (min-width: 248px) and (max-width: 548px) {
+  .linkstyle {
+    font-size: 16px;
+  }
+  .linkright {
+    width: 70%;
+    height: 40px;
+    text-align: end;
+    margin-right: 15px;
+    margin-top: 11px;
+  }
+  .linkleft {
+    margin-top: 13px;
+  }
+  .linkleft h3 {
+    font-size: 16px;
+  }
+}
