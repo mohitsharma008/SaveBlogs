@@ -9,7 +9,7 @@ const Score = () => {
     <>
       <Header />
       <div
-        style={{ backgroundColor: "#7a30b3", width: "100%", height: "100vh" }}
+        style={{ backgroundColor: "#468cc2", width: "100%", height: "100vh" }}
       >
         <div style={{ paddingTop: 42 }}>
           <h1>SCORE PAGE</h1>

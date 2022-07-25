@@ -17,7 +17,7 @@ const Logout = (props) => {
       <div className="logoutfullhandle">
         <div style={{ paddingTop: 0, textAlign: "center" }}>
           {props.email != null ? (
-            <p style={{ fontSize: 18, marginBottom: 2, color: "#ccd98f" }}>
+            <p style={{ fontSize: 18, marginBottom: 2, color: "#ccd98f",fontWeight:"bold" }}>
               Email [{props.email}]
             </p>
           ) : null}

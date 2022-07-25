@@ -26,12 +26,13 @@ class Home extends React.Component {
             <br />
             <p
               style={{
-                color: "white",
+                color: "black",
                 textIndent: "50px",
                 textAlign: "justify",
                 letterSpacing: "2px",
                 marginLeft: "100px",
                 marginRight: "100px",
+                fontSize:"16px",fontWeight:"bolder"
               }}
             >
               {/* <span
@@ -54,12 +55,14 @@ class Home extends React.Component {
             <br />
             <p
               style={{
-                color: "white",
+                color: "black",
                 textIndent: "50px",
                 textAlign: "justify",
                 letterSpacing: "2px",
                 marginLeft: "100px",
                 marginRight: "100px",
+                fontSize:"16px",fontWeight:"bolder"
+
               }}
             >
               {/* <span
@@ -80,12 +83,14 @@ class Home extends React.Component {
             <br />
             <p
               style={{
-                color: "white",
+                color: "black",
                 textIndent: "50px",
                 textAlign: "justify",
                 letterSpacing: "2px",
                 marginLeft: "100px",
                 marginRight: "100px",
+                fontSize:"16px",fontWeight:"bolder"
+
               }}
             >
               {/* <span
@@ -115,12 +120,14 @@ class Home extends React.Component {
             <br />
             <p
               style={{
-                color: "white",
+                color: "black",
                 textIndent: "50px",
                 textAlign: "justify",
                 letterSpacing: "2px",
                 marginLeft: "100px",
                 marginRight: "100px",
+                fontSize:"16px",fontWeight:"bolder"
+
               }}
             >
               {/* <span
@@ -146,12 +153,14 @@ class Home extends React.Component {
             <br />
             <p
               style={{
-                color: "white",
+                color: "black",
                 textIndent: "50px",
                 textAlign: "justify",
                 letterSpacing: "2px",
                 marginLeft: "100px",
                 marginRight: "100px",
+                fontSize:"16px",fontWeight:"bolder"
+              
               }}
             >
               {/* <span
@@ -181,12 +190,14 @@ class Home extends React.Component {
             <br />
             <p
               style={{
-                color: "white",
+                color: "black",
                 textIndent: "50px",
                 textAlign: "justify",
                 letterSpacing: "2px",
                 marginLeft: "100px",
                 marginRight: "100px",
+                fontSize:"16px",fontWeight:"bolder"
+
               }}
             >
               {/* <span

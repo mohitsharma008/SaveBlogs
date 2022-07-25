@@ -44,7 +44,7 @@ const Feedback = () => {
     // });
     var res = axios
       .post(
-        "https://compucom-project-default-rtdb.firebaseio.com/bookmark.json",
+        "https://streamy-325306-default-rtdb.firebaseio.com/feedback.json",
         form
       )
       .then((res) =>
@@ -58,7 +58,7 @@ const Feedback = () => {
     <>
       <Header />
       <div
-        style={{ backgroundColor: "#7a30b3", width: "100%", height: "100vh" }}
+        style={{ backgroundColor: "#468cc2", width: "100%", height: "100vh" }}
       >
         <div
           style={{

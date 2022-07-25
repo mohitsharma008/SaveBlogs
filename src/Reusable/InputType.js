@@ -78,7 +78,7 @@ class InputType extends React.Component {
                   <FaEnvelope
                     size={20}
                     style={{
-                      color: "#7a30b3",
+                      color: "#468cc2",
                       marginLeft: 6,
                       marginRight: 6,
                     }}
@@ -111,7 +111,7 @@ class InputType extends React.Component {
                       marginTop: 2,
                       marginLeft: 6,
                       marginRight: 6,
-                      color: "#7a30b3",
+                      color: "#468cc2",
                     }}
                   />
                 </div>
@@ -132,7 +132,7 @@ class InputType extends React.Component {
                       backgroundColor: "#fbfaff",
                     }}
                   >
-                    <span
+                    {/* <span
                       onClick={() => {
                         this.setState({ eye: !this.state.eye });
                       }}
@@ -148,7 +148,7 @@ class InputType extends React.Component {
                           style={{ marginRight: 2, marginTop: 2 }}
                         />
                       )}
-                    </span>
+                    </span> */}
                   </div>
                 ) : null}
               </div>

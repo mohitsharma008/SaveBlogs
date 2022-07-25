@@ -3,8 +3,9 @@ import "./nimcet.css";
 import axios from "axios";
 import Card from "../../Reusable/Card";
 import Header from "../../Router/Header";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete,AiFillEdit } from "react-icons/ai";
 import { connect } from "react-redux";
+import { BookmarksSharp } from "@material-ui/icons";
 
 const Nimcet = (props) => {
   const [data, setData] = useState(null);
@@ -13,12 +14,22 @@ const Nimcet = (props) => {
     catagory: "",
     email: null,
   });
+  const [bookmarks, setBookmarks] = useState({
+    url: "",
+    catagory: "",
+    email: "",
+  });
+
   const [insert, setInsert] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [isEditId, setIsEditId] = useState(null);
+
+
   console.log(props);
   useEffect(() => {
     axios
       .get(
-        "https://compucom-project-default-rtdb.firebaseio.com/bookmark/.json"
+        "https://streamy-325306-default-rtdb.firebaseio.com/bookmark/.json"
       )
       .then((res) => {
         const fetchorders = [];
@@ -29,11 +40,12 @@ const Nimcet = (props) => {
         setData(fetchorders);
       })
       .catch((err) => console.log(err));
+      setIsEdit(false);
   }, []);
   useEffect(() => {
     axios
       .get(
-        "https://compucom-project-default-rtdb.firebaseio.com/bookmark/.json"
+        "https://streamy-325306-default-rtdb.firebaseio.com/bookmark/.json"
       )
       .then((res) => {
         const fetchorders = [];
@@ -59,7 +71,7 @@ const Nimcet = (props) => {
     if (bookmark.catagory != "" && bookmark.url != "") {
       var res = axios
         .post(
-          `https://compucom-project-default-rtdb.firebaseio.com/bookmark.json`,
+          `https://streamy-325306-default-rtdb.firebaseio.com/bookmark.json`,
           bookmark
         )
         .then((res) =>
@@ -73,9 +85,10 @@ const Nimcet = (props) => {
     }
   };
   const handleDelete = (data) => {
+    console.log(data);
     axios
       .delete(
-        `https://compucom-project-default-rtdb.firebaseio.com/bookmark/${data}.json`
+        `https://streamy-325306-default-rtdb.firebaseio.com/bookmark/${data}.json`
       )
       .then((response) => {
         setInsert(true);
@@ -86,6 +99,53 @@ const Nimcet = (props) => {
       });
     console.log(data);
   };
+  const EditHandle=(data)=>{
+    setIsEdit(true);
+    setIsEditId(data.id);
+    setBookmarks({  ...bookmarks,url: data.url,
+    catagory: data.catagory,
+    email: data.email})
+    // axios
+    // .put(
+    //   `https://compucom-project-2-default-rtdb.firebaseio.com/bookmark/${data.id}.json`,bookmarks
+    // )
+    // .then((response) => {
+    //   setInsert(true);
+    //   console.log(response);
+    // })
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+    // console.log("Hello");
+  }
+  const handleEditId=(e)=>{
+    console.log(e.target.name,e.target.value);
+    setBookmarks({
+      ...bookmarks,
+      [e.target.name]: e.target.value,
+      email: props.email,
+    });
+
+  }
+  const EditHandleClick=(data)=>{
+  axios
+    .put(
+      `https://streamy-325306-default-rtdb.firebaseio.com/bookmark/${data.id}.json`,bookmarks
+    )
+    .then((response) => {
+      setInsert(true);
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    setBookmarks({...bookmarks,catagory:"",url:"",email:""});
+    setIsEdit(false);
+    setIsEditId(null);
+
+  }
+  console.log(bookmarks.catagory);
+  console.log(isEdit);  
   return (
     <>
       <Header />
@@ -110,20 +170,20 @@ const Nimcet = (props) => {
             }}
           >
             <form onSubmit={handleSubmit}>
-              <input
-                placeholder="Enter Your Bookmarks Here"
-                value={bookmark.url}
-                name="url"
-                style={{ width: 300, padding: 10, marginRight: 10 }}
-                onChange={(e) => handleChange(e)}
-              ></input>{" "}
+           
               <input
                 placeholder="Enter Category"
                 value={bookmark.catagory}
                 name="catagory"
                 style={{ width: 300, padding: 10, marginRight: 10 }}
                 onChange={(e) => handleChange(e)}
-              ></input>
+              ></input>   <input
+              placeholder="Enter Your Bookmarks Here"
+              value={bookmark.url}
+              name="url"
+              style={{ width: 300, padding: 10, marginRight: 10 }}
+              onChange={(e) => handleChange(e)}
+            ></input>{" "}
               <button
                 type="submit"
                 style={{
@@ -157,7 +217,36 @@ const Nimcet = (props) => {
                         }}
                       >
                         {" "}
-                        <div
+                      {data.id==isEditId? <div
+                          key={index}
+                          style={{
+                            border: "1px solid orange",
+                            backgroundColor: "#705e2d",
+                            marginTop: 5,
+                            width: "100%",
+                            display: "flex",
+                            // backgroundColor: "red",
+                            paddingBottom: 5,
+                            paddingTop: 5,
+                          }}
+                        >
+                    
+                          <input
+                placeholder="Enter Category"
+                value={bookmarks.catagory}
+                name="catagory"
+                style={{ width: 300, padding: 10, marginRight: 10 }}
+                onChange={(e) => handleEditId(e)}
+              ></input>
+                     <input
+                placeholder="Enter Url"
+                value={bookmarks.url}
+                name="url"
+                style={{ width: 300, padding: 10, marginRight: 10 }}
+                onChange={(e) => handleEditId(e)}
+              ></input>
+                     
+                        </div>:<div
                           key={index}
                           style={{
                             border: "1px solid orange",
@@ -190,8 +279,55 @@ const Nimcet = (props) => {
                           >
                             {data.url}
                           </a>
+                        </div>}
+                        
+                     {   isEdit==false?<div
+                          style={{
+                            color: "wheat",
+                            backgroundColor: "red",
+                            paddingTop: 2,
+                            paddingBottom: 2,
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginLeft: 5,
+                          }}
+                          onClick={()=>EditHandle(data)}
+                        >
+                          <AiFillEdit />
+                        </div>:data.id==isEditId?<button
+                          style={{
+                            color: "black",
+                            // backgroundColor: "wheat",
+                            paddingTop: 2,
+                            paddingBottom: 2,
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginLeft: 5,
+                          }}
+                          onClick={()=>EditHandleClick(data)}
+                        >
+                          Edit
+                        </button>: <div
+                          style={{
+                            color: "wheat",
+                            backgroundColor: "red",
+                            paddingTop: 2,
+                            paddingBottom: 2,
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            marginLeft: 5,
+                          }}
+                          onClick={()=>EditHandle(data)}
+                        >
+                          <AiFillEdit />
                         </div>
-                        <div
+
+
+                      }
+                      <div
                           style={{
                             color: "wheat",
                             backgroundColor: "red",

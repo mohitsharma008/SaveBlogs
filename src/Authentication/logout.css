@@ -1,6 +1,6 @@
 .logoutfullhandle {
   width: 100%;
-  background-color: #7a30b3;
+  background-color: #468cc2;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@
   border-radius: 10px;
 }
 .logoutbtn:hover {
-  background-color: #7a30b3;
+  background-color: #468cc2;
 }
 .logouticonbtn {
   display: grid;
